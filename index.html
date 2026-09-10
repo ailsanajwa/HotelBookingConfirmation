@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Maison Soleil - Hotel booking confirmation for Lucia. Room La Garrigue in Cassis, France.">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  
+  <title>Maison Soleil | Booking Confirmation</title>
+
+  <!-- Google Fonts Preconnect & Fallback -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+  <!-- Mobile Top Header Bar -->
+  <header class="mobile-header" id="mobileHeader">
+    <a href="#" class="mobile-logo" aria-label="Maison Soleil Home">
+      <img src="./assets/images/logo.svg" alt="Maison Soleil" width="107" height="42">
+    </a>
+    <button type="button" class="btn-menu-toggle" id="menuToggleBtn" aria-label="Open menu" aria-expanded="false" aria-controls="sidebar">
+      <img src="./assets/images/icon-menu.svg" alt="" width="20" height="14" id="menuIcon">
+    </button>
+  </header>
+
+  <!-- Backdrop for Mobile Drawer -->
+  <div class="sidebar-backdrop" id="sidebarBackdrop" aria-hidden="true"></div>
+
+  <div class="app-layout">
+    <!-- Sidebar / Navigation Drawer -->
+    <aside class="sidebar" id="sidebar" aria-label="Primary Navigation">
+      <div class="sidebar-top">
+        <a href="#" class="sidebar-logo" aria-label="Maison Soleil Home">
+          <img src="./assets/images/logo.svg" alt="Maison Soleil" width="107" height="42">
+        </a>
+        <button type="button" class="btn-drawer-close" id="drawerCloseBtn" aria-label="Close menu">
+          <img src="./assets/images/icon-close.svg" alt="" width="16" height="16">
+        </button>
+      </div>
+
+      <!-- Guest Navigation -->
+      <nav class="sidebar-nav">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="#your-stay" class="nav-link active" data-view="view-your-stay" aria-current="page">
+              <span class="nav-link-content">
+                <img src="./assets/images/icon-bed.svg" alt="" class="nav-icon" width="20" height="20">
+                <span>Your stay</span>
+              </span>
+              <span class="nav-badge" aria-label="1 notification">1</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#the-house" class="nav-link" data-view="view-the-house">
+              <span class="nav-link-content">
+                <img src="./assets/images/icon-house.svg" alt="" class="nav-icon" width="20" height="20">
+                <span>The house</span>
+              </span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#around-town" class="nav-link" data-view="view-around-town">
+              <span class="nav-link-content">
+                <img src="./assets/images/icon-pin.svg" alt="" class="nav-icon" width="20" height="20">
+                <span>Around town</span>
+              </span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#breakfast" class="nav-link" data-view="view-breakfast">
+              <span class="nav-link-content">
+                <img src="./assets/images/icon-breakfast-outline.svg" alt="" class="nav-icon" width="20" height="20">
+                <span>Breakfast</span>
+              </span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#messages" class="nav-link" data-view="view-messages">
+              <span class="nav-link-content">
+                <img src="./assets/images/icon-mail.svg" alt="" class="nav-icon" width="20" height="20">
+                <span>Messages</span>
+              </span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Local Weather Card -->
+      <section class="weather-card" aria-label="Local weather in Cassis">
+        <div class="weather-info">
+          <p class="weather-tag">TODAY IN CASSIS</p>
+          <p class="weather-temp">27°</p>
+          <p class="weather-desc">Sunny · light breeze</p>
+        </div>
+        <div class="weather-art-container" aria-hidden="true">
+          <img src="./assets/images/icon-weather.svg" alt="" class="weather-art" width="80" height="80">
+        </div>
+      </section>
+
+      <!-- Sidebar Footer Meta -->
+      <footer class="sidebar-meta">
+        <p class="meta-est">EST. 1987</p>
+        <p class="meta-address">MAISON SOLEIL · 12 RUE DES OLIVIERS · CASSIS</p>
+        <p class="meta-copyright">© 2026 MAISON SOLEIL</p>
+      </footer>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content" id="main-content">
+      <!-- ==================================================================== -->
+      <!-- TAB 1: YOUR STAY (Default Active View)                               -->
+      <!-- ==================================================================== -->
+      <section class="tab-view active" id="view-your-stay" aria-labelledby="heading-your-stay">
+        <!-- Main Content Header -->
+        <header class="main-header">
+          <div class="header-titles">
+            <p class="status-badge">BOOKING · CONFIRMED</p>
+            <h1 class="welcome-heading" id="heading-your-stay">Bienvenue, <em>Lucia.</em></h1>
+        </div>
+        <div class="header-actions">
+          <button type="button" class="btn btn-secondary" id="printReceiptBtn">
+            <span>Print receipt</span>
+          </button>
+          <button type="button" class="btn btn-primary" id="addToCalendarBtn">
+            <span>Add to calendar</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Hero Overlapping Cards Section -->
+      <section class="hero-cards-section" id="cardsSection" aria-label="Booking and Welcome Cards">
+        <!-- Sun illustration behind fanning cards -->
+        <div class="sun-behind" id="sunIllustration" aria-hidden="true">
+          <img src="./assets/images/illustration-sun.svg" alt="" width="164" height="164">
+        </div>
+
+        <div class="cards-stage" id="cardsStage">
+          <!-- Receipt Card -->
+          <article class="card card-receipt" id="receiptCard">
+            <!-- Receipt Header -->
+            <div class="receipt-header">
+              <span class="tag-mono">RECEIPT</span>
+              <div class="receipt-ref">
+                <span>№ MS-2026</span>
+                <span>0421-AH</span>
+              </div>
+            </div>
+
+            <h2 class="receipt-title">Your stay</h2>
+
+            <div class="receipt-divider-dashed"></div>
+
+            <!-- Check In / Out Dates -->
+            <div class="stay-dates-grid">
+              <div class="date-col">
+                <span class="col-label">CHECK IN</span>
+                <p class="date-big">25 Apr</p>
+                <p class="date-detail">Saturday · 15:00</p>
+              </div>
+              <div class="date-col">
+                <span class="col-label">CHECK OUT</span>
+                <p class="date-big">29 Apr</p>
+                <p class="date-detail">Wednesday · 11:00</p>
+              </div>
+            </div>
+
+            <div class="receipt-divider-dashed"></div>
+
+            <!-- Cost Breakdown -->
+            <ul class="breakdown-list">
+              <li class="breakdown-item">
+                <span class="item-name">Room · La Garrigue × 4 nights</span>
+                <span class="item-price mono">€ 620.00</span>
+              </li>
+              <li class="breakdown-item">
+                <span class="item-name">Breakfast × 2 guests</span>
+                <span class="item-price mono">€ 96.00</span>
+              </li>
+              <li class="breakdown-item">
+                <span class="item-name">Tourist tax</span>
+                <span class="item-price mono">€ 14.40</span>
+              </li>
+            </ul>
+
+            <div class="receipt-divider-solid"></div>
+
+            <!-- Total Paid -->
+            <div class="receipt-total-row">
+              <span class="total-label">TOTAL PAID</span>
+              <span class="total-amount">€ 730.40</span>
+            </div>
+
+            <!-- Receipt Footer / Barcode -->
+            <div class="receipt-footer">
+              <span class="payment-method">PAID · WISE · GBP</span>
+              <img src="./assets/images/icon-barcode.svg" alt="Barcode MS-2026" class="receipt-barcode" width="93" height="28">
+            </div>
+          </article>
+
+          <!-- Welcome Card -->
+          <article class="card card-welcome" id="welcomeCard">
+            <div class="welcome-header">
+              <span class="tag-mono-light">WELCOME CARD</span>
+              <img src="./assets/images/icon-sun.svg" alt="" class="welcome-sun" width="44" height="44" aria-hidden="true">
+            </div>
+
+            <div class="welcome-divider-dashed"></div>
+
+            <div class="welcome-body">
+              <p class="host-intro">A note from your host,</p>
+              <h2 class="host-name">Margaux.</h2>
+              <p class="host-message">
+                We're so glad you're coming. The shutters will be open, the lemonade cold, and the cat — Poivre — pretending not to notice you.
+              </p>
+            </div>
+
+            <div class="welcome-footer">
+              <span class="room-tag">ROOM</span>
+              <p class="room-name">La Garrigue</p>
+            </div>
+          </article>
+        </div>
+
+        <!-- Fan indicator on desktop -->
+        <p class="fan-indicator" aria-hidden="true">
+          <span class="diamond">✦</span> HOVER TO FAN <span class="diamond">✦</span>
+        </p>
+      </section>
+
+      <!-- Guest Information Cards Grid -->
+      <section class="info-cards-grid" aria-label="Guest Important Information">
+        <!-- 01 Arrival -->
+        <article class="info-card">
+          <header class="info-card-header">
+            <div class="info-badge-group">
+              <span class="icon-badge badge-arrival" aria-hidden="true">
+                <img src="./assets/images/icon-key.svg" alt="" width="16" height="16">
+              </span>
+              <span class="info-category cat-arrival">ARRIVAL</span>
+            </div>
+            <span class="info-number num-arrival">01</span>
+          </header>
+          <div class="info-card-body">
+            <h3 class="info-card-title">Check-in from 15:00</h3>
+            <p class="info-card-sub">Sat, 25 April</p>
+            <p class="info-card-text">
+              Ring the brass bell by the blue door. If we're at the market, the key is in the terracotta pot by the olive tree.
+            </p>
+          </div>
+        </article>
+
+        <!-- 02 Wifi -->
+        <article class="info-card">
+          <header class="info-card-header">
+            <div class="info-badge-group">
+              <span class="icon-badge badge-wifi" aria-hidden="true">
+                <img src="./assets/images/icon-wifi.svg" alt="" width="16" height="16">
+              </span>
+              <span class="info-category cat-wifi">WIFI</span>
+            </div>
+            <span class="info-number num-wifi">02</span>
+          </header>
+          <div class="info-card-body">
+            <h3 class="info-card-title">Le Soleil · Guest</h3>
+            <p class="info-card-sub">Password below</p>
+            
+            <div class="wifi-credentials">
+              <div class="wifi-pill-row">
+                <span class="cred-label">NETWORK</span>
+                <span class="cred-val">Le Soleil · Guest</span>
+              </div>
+              <div class="wifi-pill-row">
+                <span class="cred-label">PASSWORD</span>
+                <div class="cred-password-wrapper">
+                  <span class="cred-val mono" id="wifiPassword">soleil-2026</span>
+                  <button type="button" class="btn-copy" id="copyPasswordBtn" title="Copy password to clipboard">
+                    COPY
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 03 Breakfast -->
+        <article class="info-card">
+          <header class="info-card-header">
+            <div class="info-badge-group">
+              <span class="icon-badge badge-breakfast" aria-hidden="true">
+                <img src="./assets/images/icon-breakfast.svg" alt="" width="16" height="16">
+              </span>
+              <span class="info-category cat-breakfast">BREAKFAST</span>
+            </div>
+            <span class="info-number num-breakfast">03</span>
+          </header>
+          <div class="info-card-body">
+            <h3 class="info-card-title">Served 8 – 10:30</h3>
+            <p class="info-card-sub">On the terrace</p>
+            <p class="info-card-text">
+              Fresh figs, Marseille honey, pain au levain, and espresso. Gluten-free option? Leave a note the night before.
+            </p>
+          </div>
+        </article>
+      </section>
+      <!-- End of info-cards-grid -->
+    </section>
+    <!-- End Tab 1: Your stay -->
+
+      <!-- ==================================================================== -->
+      <!-- TAB 2: THE HOUSE                                                     -->
+      <!-- ==================================================================== -->
+      <section class="tab-view" id="view-the-house" aria-labelledby="heading-the-house" hidden>
+        <header class="main-header">
+          <div class="header-titles">
+            <p class="status-badge">MAISON SOLEIL · BOUTIQUE RESIDENCE</p>
+            <h1 class="welcome-heading" id="heading-the-house">The <em>House.</em></h1>
+          </div>
+          <div class="header-actions">
+            <a href="#messages" class="btn btn-primary nav-shortcut" data-view="view-messages">
+              <span>Contact host</span>
+            </a>
+          </div>
+        </header>
+
+        <!-- Featured House Story Card -->
+        <article class="featured-story-card">
+          <div class="story-content">
+            <span class="tag-mono">ABOUT THE RESIDENCE</span>
+            <h2 class="story-title">A quiet 19th-century sanctuary perched above the limestone cliffs of Cassis.</h2>
+            <p class="story-text">
+              Built in 1887 from local blond stone and terracotta, Maison Soleil has been carefully restored into an intimate six-room boutique retreat. Shaded by ancient olive trees and fragrant with wild lavender and rosemary, the house offers sweeping views over the Mediterranean and the dramatic red limestone of Cap Canaille.
+            </p>
+            <div class="story-stats-grid">
+              <div class="stat-box">
+                <span class="stat-number">1887</span>
+                <span class="stat-label">ORIGINALLY BUILT</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-number">6</span>
+                <span class="stat-label">GUEST SUITES</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-number">400m</span>
+                <span class="stat-label">TO OLD PORT</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-number">100%</span>
+                <span class="stat-label">PROVENÇAL SUN</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Facilities & Amenities Grid -->
+        <section class="facilities-section" aria-label="House facilities">
+          <h2 class="sub-heading-serif">Facilities &amp; Residence Amenities</h2>
+          <div class="facilities-grid">
+            <article class="facility-card">
+              <div class="facility-header">
+                <span class="facility-badge">
+                  <img src="./assets/images/icon-sparkle.svg" alt="" width="16" height="16">
+                </span>
+                <span class="facility-tag">OUTDOOR</span>
+              </div>
+              <h3 class="facility-title">Heated Plunge Pool</h3>
+              <p class="facility-text">A private stone basin surrounded by sun loungers, open all day until sunset.</p>
+            </article>
+
+            <article class="facility-card">
+              <div class="facility-header">
+                <span class="facility-badge">
+                  <img src="./assets/images/icon-sun.svg" alt="" width="16" height="16">
+                </span>
+                <span class="facility-tag">GARDEN</span>
+              </div>
+              <h3 class="facility-title">Olive Terrace &amp; Courtyard</h3>
+              <p class="facility-text">Peaceful reading nooks under century-old trees with panoramic sea views.</p>
+            </article>
+
+            <article class="facility-card">
+              <div class="facility-header">
+                <span class="facility-badge">
+                  <img src="./assets/images/icon-house.svg" alt="" width="16" height="16">
+                </span>
+                <span class="facility-tag">LIVING</span>
+              </div>
+              <h3 class="facility-title">Honesty Cellar &amp; Lounge</h3>
+              <p class="facility-text">Chilled local Cassis AOC white wines, bottled sparklings, and craft aperitifs.</p>
+            </article>
+
+            <article class="facility-card">
+              <div class="facility-header">
+                <span class="facility-badge">
+                  <img src="./assets/images/icon-wifi.svg" alt="" width="16" height="16">
+                </span>
+                <span class="facility-tag">CONNECTIVITY</span>
+              </div>
+              <h3 class="facility-title">High-Speed Fiber Wi-Fi</h3>
+              <p class="facility-text">Fast, uninterrupted connectivity across all bedrooms, salon, and garden.</p>
+            </article>
+
+            <article class="facility-card">
+              <div class="facility-header">
+                <span class="facility-badge">
+                  <img src="./assets/images/icon-breakfast.svg" alt="" width="16" height="16">
+                </span>
+                <span class="facility-tag">DINING</span>
+              </div>
+              <h3 class="facility-title">Artisan Breakfast Terrace</h3>
+              <p class="facility-text">Daily morning table with freshly baked croissants, Marseille figs, and coffee.</p>
+            </article>
+
+            <article class="facility-card">
+              <div class="facility-header">
+                <span class="facility-badge">
+                  <img src="./assets/images/icon-key.svg" alt="" width="16" height="16">
+                </span>
+                <span class="facility-tag">EXPLORE</span>
+              </div>
+              <h3 class="facility-title">Villa Bicycles &amp; Towels</h3>
+              <p class="facility-text">Complimentary coastal cruisers and woven beach baskets ready for the Calanques.</p>
+            </article>
+          </div>
+        </section>
+
+        <!-- Practical Stay Info & Rules -->
+        <div class="stay-info-split">
+          <article class="info-block-card">
+            <span class="tag-mono">PRACTICAL INFORMATION</span>
+            <h3 class="block-title">Check-in &amp; Departures</h3>
+            <ul class="practical-list">
+              <li><strong>Check-in:</strong> From 15:00 to 20:00 (Self check-in available via brass keybox).</li>
+              <li><strong>Check-out:</strong> By 11:00 on day of departure.</li>
+              <li><strong>Luggage room:</strong> Complimentary storage available from 09:00 on arrival day.</li>
+              <li><strong>Parking:</strong> Reserved private parking spot inside the villa gates.</li>
+            </ul>
+          </article>
+
+          <article class="info-block-card">
+            <span class="tag-mono">GUEST COURTESY</span>
+            <h3 class="block-title">House Rules &amp; Etiquette</h3>
+            <ul class="practical-list">
+              <li><strong>Tranquility:</strong> Quiet hours from 22:00 to protect the village calm.</li>
+              <li><strong>Smoking:</strong> Strictly non-smoking across all indoor suites and corridors.</li>
+              <li><strong>Poivre the Cat:</strong> Resident ginger feline; please do not feed human snacks.</li>
+              <li><strong>Keys:</strong> Brass room key should be dropped in the terracotta dish upon final departure.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <!-- ==================================================================== -->
+      <!-- TAB 3: AROUND TOWN                                                   -->
+      <!-- ==================================================================== -->
+      <section class="tab-view" id="view-around-town" aria-labelledby="heading-around-town" hidden>
+        <header class="main-header">
+          <div class="header-titles">
+            <p class="status-badge">CONCIERGE GUIDE · CASSIS &amp; PROVENCE</p>
+            <h1 class="welcome-heading" id="heading-around-town">Around <em>Town.</em></h1>
+          </div>
+          <div class="header-actions">
+            <button type="button" class="btn btn-secondary" onclick="window.print()">
+              <span>Print guide</span>
+            </button>
+          </div>
+        </header>
+
+        <!-- Introduction Banner -->
+        <div class="guide-banner-card">
+          <div class="banner-badge-row">
+            <span class="tag-mono-light">HANDPICKED BY MARGAUX</span>
+            <span class="guide-pill">5–15 MINS FROM VILLA</span>
+          </div>
+          <h2 class="guide-headline">Our favorite spots in Cassis: from morning café au lait to secret calanques swims.</h2>
+          <p class="guide-subtext">No tourist traps—just the intimate bistros, hidden rocky coves, and scenic vineyards that we frequent ourselves.</p>
+        </div>
+
+        <!-- Recommendations Grid -->
+        <div class="recommendations-grid">
+          <!-- 01 Cafes & Bakeries -->
+          <article class="recommend-card">
+            <div class="recommend-header">
+              <div class="rec-icon-badge cat-cafe">
+                <img src="./assets/images/icon-breakfast.svg" alt="" width="16" height="16">
+              </div>
+              <span class="rec-cat">CAFÉS &amp; BAKERIES</span>
+              <span class="rec-dist">4 MIN WALK</span>
+            </div>
+            <h3 class="rec-title">Boulangerie Saint-Michel</h3>
+            <p class="rec-desc">The oldest village bakery in Cassis. Pick up fresh fougasse with black olives and warm pain au chocolat before morning swims.</p>
+            <div class="rec-footer">
+              <span class="rec-tip">✦ Must try: Pain au levain &amp; Tropezienne tart</span>
+            </div>
+          </article>
+
+          <!-- 02 Cafes & Drinks -->
+          <article class="recommend-card">
+            <div class="recommend-header">
+              <div class="rec-icon-badge cat-cafe">
+                <img src="./assets/images/icon-sparkle.svg" alt="" width="16" height="16">
+              </div>
+              <span class="rec-cat">QUAYSIDE COFFEE</span>
+              <span class="rec-dist">6 MIN WALK</span>
+            </div>
+            <h3 class="rec-title">Café de la Marine</h3>
+            <p class="rec-desc">Pull up a wicker chair under the awnings facing the old port. Watch fishermen unload the morning catch over a café serré.</p>
+            <div class="rec-footer">
+              <span class="rec-tip">✦ Best time: 08:30 AM for morning sun</span>
+            </div>
+          </article>
+
+          <!-- 03 Dining -->
+          <article class="recommend-card">
+            <div class="recommend-header">
+              <div class="rec-icon-badge cat-dining">
+                <img src="./assets/images/icon-house.svg" alt="" width="16" height="16">
+              </div>
+              <span class="rec-cat">RESTAURANTS</span>
+              <span class="rec-dist">8 MIN WALK</span>
+            </div>
+            <h3 class="rec-title">Chez Gilbert</h3>
+            <p class="rec-desc">Charter member of the authentic Marseille Bouillabaisse association. Exceptional saffron broth, fresh rockfish, and garlic rouille.</p>
+            <div class="rec-footer">
+              <span class="rec-tip">✦ Reservations recommended 24h prior</span>
+            </div>
+          </article>
+
+          <!-- 04 Beaches & Nature -->
+          <article class="recommend-card">
+            <div class="recommend-header">
+              <div class="rec-icon-badge cat-nature">
+                <img src="./assets/images/icon-pin.svg" alt="" width="16" height="16">
+              </div>
+              <span class="rec-cat">NATURE &amp; COVES</span>
+              <span class="rec-dist">45 MIN HIKE / BOAT</span>
+            </div>
+            <h3 class="rec-title">Calanque d’En-Vau</h3>
+            <p class="rec-desc">A dramatic limestone fjord with turquoise waters. We provide woven beach mats and bottled chilled water for your hike.</p>
+            <div class="rec-footer">
+              <span class="rec-tip">✦ Wear sturdy shoes for the descent</span>
+            </div>
+          </article>
+
+          <!-- 05 Beach -->
+          <article class="recommend-card">
+            <div class="recommend-header">
+              <div class="rec-icon-badge cat-nature">
+                <img src="./assets/images/icon-sun.svg" alt="" width="16" height="16">
+              </div>
+              <span class="rec-cat">LOCAL BEACH</span>
+              <span class="rec-dist">7 MIN WALK</span>
+            </div>
+            <h3 class="rec-title">Plage du Bestouan</h3>
+            <p class="rec-desc">Polished pebble beach right by the villa with unforgettable views looking straight across at the glowing red cliffs of Cap Canaille.</p>
+            <div class="rec-footer">
+              <span class="rec-tip">✦ Sunset aperitif on the rocks</span>
+            </div>
+          </article>
+
+          <!-- 06 Transport -->
+          <article class="recommend-card">
+            <div class="recommend-header">
+              <div class="rec-icon-badge cat-transit">
+                <img src="./assets/images/icon-key.svg" alt="" width="16" height="16">
+              </div>
+              <span class="rec-cat">TRANSPORTATION</span>
+              <span class="rec-dist">AT THE PORT</span>
+            </div>
+            <h3 class="rec-title">Harbor Shuttles &amp; Gare SNCF</h3>
+            <p class="rec-desc">Scenic boat shuttles depart every 45 mins from the quayside. Cassis train station is 10 mins by electric bus M1 to Marseille.</p>
+            <div class="rec-footer">
+              <span class="rec-tip">✦ Ask reception for bus timetable</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ==================================================================== -->
+      <!-- TAB 4: BREAKFAST                                                     -->
+      <!-- ==================================================================== -->
+      <section class="tab-view" id="view-breakfast" aria-labelledby="heading-breakfast" hidden>
+        <header class="main-header">
+          <div class="header-titles">
+            <p class="status-badge">DAILY SERVICE · 08:00 – 10:30</p>
+            <h1 class="welcome-heading" id="heading-breakfast">Morning <em>Breakfast.</em></h1>
+          </div>
+          <div class="header-actions">
+            <span class="service-time-pill">
+              <span class="clock-icon">☀️</span> Included in Lucia’s stay (2 guests)
+            </span>
+          </div>
+        </header>
+
+        <!-- Breakfast Hero Banner -->
+        <article class="breakfast-hero-card">
+          <div class="breakfast-hero-body">
+            <span class="tag-mono-light">TERRACE &amp; ROOM SERVICE</span>
+            <h2 class="breakfast-hero-title">A Provençal morning ritual under the olive trees.</h2>
+            <p class="breakfast-hero-desc">
+              Every morning begins with warm loaves delivered straight from village ovens, seasonal fruit from neighboring Solliès orchards, organic goat curd, and espresso roasted in Marseille.
+            </p>
+          </div>
+        </article>
+
+        <!-- Menu Columns Grid -->
+        <div class="breakfast-menu-grid">
+          <!-- Col 1: Boulangerie -->
+          <article class="menu-card">
+            <div class="menu-card-header">
+              <div class="menu-badge badge-arrival">
+                <img src="./assets/images/icon-breakfast.svg" alt="" width="16" height="16">
+              </div>
+              <h3 class="menu-card-category">LE PANIER DU BOULANGER</h3>
+            </div>
+            <p class="menu-card-sub">Freshly baked at 06:45 daily</p>
+            <ul class="menu-items-list">
+              <li class="menu-item">
+                <div class="item-title">Pain au Levain Traditionnel</div>
+                <div class="item-detail">Naturally fermented sourdough served with salted Normandy butter</div>
+              </li>
+              <li class="menu-item">
+                <div class="item-title">Croissants &amp; Pain au Chocolat</div>
+                <div class="item-detail">Pure Charentes-Poitou butter, flaky and crisp</div>
+              </li>
+              <li class="menu-item">
+                <div class="item-title">Brioche à la Fleur d'Oranger</div>
+                <div class="item-detail">Light sweet brioche scented with local orange blossom</div>
+              </li>
+              <li class="menu-item">
+                <div class="item-title">Confitures Maison</div>
+                <div class="item-detail">Homemade Solliès black fig, bitter Seville orange &amp; apricot preserves</div>
+              </li>
+            </ul>
+          </article>
+
+          <!-- Col 2: Orchard & Dairy -->
+          <article class="menu-card">
+            <div class="menu-card-header">
+              <div class="menu-badge badge-breakfast">
+                <img src="./assets/images/icon-sparkle.svg" alt="" width="16" height="16">
+              </div>
+              <h3 class="menu-card-category">VERGER &amp; PRODUITS FRAIS</h3>
+            </div>
+            <p class="menu-card-sub">Seasonal, organic &amp; local</p>
+            <ul class="menu-items-list">
+              <li class="menu-item">
+                <div class="item-title">Provençal Fig &amp; Melon Bowl</div>
+                <div class="item-detail">Fresh black figs, sliced Charentais melon, and sweet mint leaves</div>
+              </li>
+              <li class="menu-item">
+                <div class="item-title">Faisselle de Chèvre &amp; Miel</div>
+                <div class="item-detail">Fresh goat curd from Roquefort-la-Bédoule with lavender honey</div>
+              </li>
+              <li class="menu-item">
+                <div class="item-title">Œufs Frais de la Ferme</div>
+                <div class="item-detail">Soft-boiled with fleur de sel, creamy scrambled, or poached to order</div>
+              </li>
+              <li class="menu-item">
+                <div class="item-title">Granola Maison aux Amandes</div>
+                <div class="item-detail">Oven-toasted oats with local almonds, pumpkin seeds &amp; yogurt</div>
+              </li>
+            </ul>
+          </article>
+
+          <!-- Col 3: Beverages -->
+          <article class="menu-card">
+            <div class="menu-card-header">
+              <div class="menu-badge badge-wifi">
+                <img src="./assets/images/icon-sun.svg" alt="" width="16" height="16">
+              </div>
+              <h3 class="menu-card-category">CAFÉ &amp; INFUSIONS</h3>
+            </div>
+            <p class="menu-card-sub">Hot and cold pressed drinks</p>
+            <ul class="menu-items-list">
+              <li class="menu-item">
+                <div class="item-title">Café Torréfié Artisanal</div>
+                <div class="item-detail">Single-origin espresso, cappuccino, flat white, or French press</div>
+              </li>
+              <li class="menu-item">
+                <div class="item-title">Jus Pressés du Matin</div>
+                <div class="item-detail">Freshly squeezed sweet Valencia orange or ruby grapefruit juice</div>
+              </li>
+              <li class="menu-item">
+                <div class="item-title">Thés &amp; Tisanes Palais des Thés</div>
+                <div class="item-detail">Thé du Hammam, Earl Grey French Blue, or Sencha Ariake</div>
+              </li>
+              <li class="menu-item">
+                <div class="item-title">Infusion du Jardin</div>
+                <div class="item-detail">Steeped fresh garden verbena, spearmint, and lemon zest</div>
+              </li>
+            </ul>
+          </article>
+        </div>
+
+        <!-- Dietary notice card -->
+        <article class="dietary-note-card">
+          <div class="dietary-icon-wrap">
+            <img src="./assets/images/icon-sparkle.svg" alt="" width="20" height="20">
+          </div>
+          <div class="dietary-text-content">
+            <h4 class="dietary-title">Gluten-Free &amp; Plant-Based Options</h4>
+            <p class="dietary-desc">
+              We gladly prepare gluten-free sourdough loaf, almond-chia seed bowls, and plant milks (oat, almond). Please inform Margaux in Messages or mention it to reception the evening prior!
+            </p>
+          </div>
+        </article>
+      </section>
+
+      <!-- ==================================================================== -->
+      <!-- TAB 5: MESSAGES                                                      -->
+      <!-- ==================================================================== -->
+      <section class="tab-view" id="view-messages" aria-labelledby="heading-messages" hidden>
+        <header class="main-header">
+          <div class="header-titles">
+            <p class="status-badge">DIRECT CONCIERGE · RECEPTION</p>
+            <h1 class="welcome-heading" id="heading-messages">Host <em>Messages.</em></h1>
+          </div>
+          <div class="header-actions">
+            <div class="host-status-badge">
+              <span class="status-pulse-dot"></span>
+              <span>Margaux is online</span>
+            </div>
+          </div>
+        </header>
+
+        <!-- Chat Main Container -->
+        <div class="chat-wrapper">
+          <!-- Chat Header Bar -->
+          <div class="chat-header-bar">
+            <div class="host-avatar-group">
+              <div class="host-avatar-circle">M</div>
+              <div class="host-meta">
+                <h3 class="host-display-name">Margaux · Maison Soleil Host</h3>
+                <p class="host-sub-status">Room La Garrigue · Check-in 25 Apr</p>
+              </div>
+            </div>
+            <span class="badge-response-time">Replies in ~5 min</span>
+          </div>
+
+          <!-- Chat Messages Body -->
+          <div class="chat-messages-container" id="chatThread">
+            <div class="chat-date-separator">
+              <span>Today · 21 April 2026</span>
+            </div>
+
+            <!-- Host Message 1 -->
+            <div class="chat-bubble-row host-row">
+              <div class="bubble-avatar">M</div>
+              <div class="bubble-content">
+                <div class="bubble-sender">Margaux · Host</div>
+                <div class="bubble-text">
+                  Bonjour Lucia! We're so glad you're coming. The shutters will be open, the lemonade cold, and the cat — Poivre — pretending not to notice you.
+                </div>
+                <span class="bubble-time">10:24 AM</span>
+              </div>
+            </div>
+
+            <!-- Host Message 2 -->
+            <div class="chat-bubble-row host-row">
+              <div class="bubble-avatar">M</div>
+              <div class="bubble-content">
+                <div class="bubble-sender">Margaux · Host</div>
+                <div class="bubble-text">
+                  Please let us know your estimated arrival time or if your train from Marseille has any delays. We'll have your room, La Garrigue, ready for you from 15:00!
+                </div>
+                <span class="bubble-time">10:26 AM</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Chat Input Bar -->
+          <form class="chat-input-form" id="chatForm">
+            <input type="text" id="chatInput" class="chat-input-field" placeholder="Write a reply to Margaux..." required autocomplete="off">
+            <button type="submit" class="btn btn-primary btn-chat-send" id="btnChatSend">
+              <span>Send</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+            </button>
+          </form>
+        </div>
+      </section>
+
+      <!-- Page attribution -->
+      <footer class="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" rel="noopener noreferrer">Frontend Mentor</a>.
+        Coded with pride for Maison Soleil.
+      </footer>
+    </main>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+</html>
